@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyTsakApi</string>
+    <string name="connection_eror">oops check internet connection</string>
+    <string name="no_subcategories">no subCategory for this item</string>
+    <string name="retry">Retry</string>
+    <string name="cat_count">( %1$s )</string>
+</resources>
