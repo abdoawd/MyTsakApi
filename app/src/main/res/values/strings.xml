@@ -4,4 +4,5 @@
     <string name="no_subcategories">no subCategory for this item</string>
     <string name="retry">Retry</string>
     <string name="cat_count">( %1$s )</string>
+    <string name="no_items">No Items</string>
 </resources>

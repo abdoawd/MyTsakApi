@@ -1,38 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:layout_margin="4dp">
+    android:layout_margin="2dp"
+    tools:layout_editor_absoluteY="29dp">
 
     <ImageView
         android:id="@+id/imv_main_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/shadow" />
+
 
     <TextView
         android:id="@+id/tv_main_recycler_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imv_main_recycler"
-        android:layout_alignEnd="@+id/imv_main_recycler"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginStart="14dp"
-        android:paddingBottom="10dp"
-        tools:ignore="RtlCompat" />
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/White"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Cars In ted" />
 
     <TextView
         android:id="@+id/tv_main_recycler_product_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imv_main_recycler"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
-        android:layout_toStartOf="@+id/tv_main_recycler_title"
+        android:layout_marginEnd="8dp"
         android:paddingBottom="10dp"
         android:paddingStart="2dp"
-        tools:ignore="RtlCompat" />
+        android:textColor="@color/White"
+        android:textSize="21sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_main_recycler_title"
+        app:layout_constraintEnd_toStartOf="@+id/tv_main_recycler_title"
+        tools:text="(20)" />
 
-</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

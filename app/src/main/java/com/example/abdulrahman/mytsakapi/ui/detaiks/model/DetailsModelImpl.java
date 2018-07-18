@@ -20,7 +20,7 @@ public class DetailsModelImpl implements DetailsModel {
 
     @Override
     public void getSubCategories(int catId, final GetSubCategoriesCallback callback) {
-        subCategoriesRequest = ApiClient.getApiService().getSubCategories(catId, Constants.COuNTRY_ID);
+        subCategoriesRequest = ApiClient.getApiService().getSubCategories(catId, Constants.COUNTRY_ID);
         subCategoriesRequest.enqueue(new Callback<List<Category>>() {
             @Override
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {

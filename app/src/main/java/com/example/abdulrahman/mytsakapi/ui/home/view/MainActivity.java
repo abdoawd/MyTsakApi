@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.abdulrahman.mytsakapi.R;
-import com.example.abdulrahman.mytsakapi.ui.detaiks.view.FragmentSubCategories;
 
 public class MainActivity extends AppCompatActivity {
 

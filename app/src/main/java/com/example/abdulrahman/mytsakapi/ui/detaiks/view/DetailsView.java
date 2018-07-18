@@ -25,5 +25,5 @@ public interface DetailsView {
 
     void setFragmentTitle(String txt);
 
-
+    void showNoItems();
 }

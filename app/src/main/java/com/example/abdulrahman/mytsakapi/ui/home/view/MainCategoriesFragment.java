@@ -46,14 +46,17 @@ public class MainCategoriesFragment extends Fragment implements HomeView {
     private HomePresenter presenter;
     private Unbinder unbinder;
 
+    public static MainCategoriesFragment getInstance() {
+        return new MainCategoriesFragment();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_categories, container, false);
-        unbinder = ButterKnife.bind(this,view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -102,9 +105,5 @@ public class MainCategoriesFragment extends Fragment implements HomeView {
         presenter.clear();
         unbinder.unbind();
         super.onDestroy();
-    }
-
-    public static MainCategoriesFragment getInstance() {
-        return new MainCategoriesFragment();
     }
 }

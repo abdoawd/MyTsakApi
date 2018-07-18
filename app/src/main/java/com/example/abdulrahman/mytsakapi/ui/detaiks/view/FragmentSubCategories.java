@@ -59,6 +59,7 @@ public class FragmentSubCategories extends Fragment implements DetailsView {
     private Unbinder unbinder;
     private Category category;
     private MainActivity activity;
+    private Snackbar snackbar;
 
     public static FragmentSubCategories getInstance(Category category) {
         FragmentSubCategories fragmentSubCategories = new FragmentSubCategories();
@@ -73,7 +74,7 @@ public class FragmentSubCategories extends Fragment implements DetailsView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sub_categoris, container, false);
-        unbinder = ButterKnife.bind(this,view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -92,7 +93,13 @@ public class FragmentSubCategories extends Fragment implements DetailsView {
 
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true); // enable back btn
         activity.getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.top_bar_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
 
         presenter = new DetailsPresenterImpl(this);
         category = bundle.getParcelable(CATEGORY_ARG);
@@ -110,9 +117,9 @@ public class FragmentSubCategories extends Fragment implements DetailsView {
 
     @Override
     public void showConnectionError(View.OnClickListener onClickListener) {
-        Snackbar.make(constraintLayout, R.string.connection_eror, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.retry, onClickListener)
-                .show();
+        snackbar = Snackbar.make(constraintLayout, R.string.connection_eror, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.retry, onClickListener);
+        snackbar.show();
     }
 
 
@@ -141,11 +148,20 @@ public class FragmentSubCategories extends Fragment implements DetailsView {
         tvToolbar.setText(txt);
     }
 
+    @Override
+    public void showNoItems() {
+        snackbar = Snackbar.make(constraintLayout, R.string.no_items, Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
+    }
+
 
     @Override
     public void onDestroy() {
         presenter.clear();
         unbinder.unbind();
+        if (snackbar != null)
+            snackbar.dismiss();
         super.onDestroy();
     }
+
 }

@@ -18,7 +18,7 @@ public interface ApiService {
     @GET("GetCategories?categoryId=0&countryId=1")
     Call<List<Category>> getMainCategories();
 
-    @GET("GetCategories?")
+    @GET("GetCategories")
     Call<List<Category>> getSubCategories(@Query("categoryId") int categoryId, @Query("countryId") int countryId);
 
 }

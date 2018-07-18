@@ -2,7 +2,9 @@ package com.example.abdulrahman.mytsakapi.utils;
 
 import android.widget.ImageView;
 
+import com.example.abdulrahman.mytsakapi.R;
 import com.example.abdulrahman.mytsakapi.applicatoin.App;
+import com.example.abdulrahman.mytsakapi.network.Constants;
 import com.squareup.picasso.Picasso;
 
 public class ImageUtils {
@@ -11,7 +13,12 @@ public class ImageUtils {
     public static void loadImage(ImageView target, String url) {
         if (url == null || url.isEmpty() || target == null)
             return;
-        getPicasso().load(url).fit().into(target);
+        if (url.equals(Constants.NO_IMG_URL)) {
+            getPicasso().load(R.drawable.cat_no_img).placeholder(R.drawable.cat_no_img).fit().into(target);
+        } else {
+            getPicasso().load(url).placeholder(R.drawable.cat_no_img).fit().into(target);
+        }
+
     }
 
     private static Picasso getPicasso() {

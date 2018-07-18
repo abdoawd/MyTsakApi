@@ -27,7 +27,7 @@ public class DetailsPresenterImpl implements DetailsPresenter, DetailsModel.GetS
     @Override
     public void init() {
         getView().setFragmentTitle(LanguageUtils.isArabicLanguage()
-                ? getView().getCategory().getTitleEN() : getView().getCategory().getTitleAR());
+                ? getView().getCategory().getTitleAR() : getView().getCategory().getTitleEN());
 
         getCategoryDetails();
     }
@@ -51,7 +51,12 @@ public class DetailsPresenterImpl implements DetailsPresenter, DetailsModel.GetS
             return;
         }
         getView().hideProgressBar();
-        getView().setListItems(categories);
+        if (categories.isEmpty()) {
+            getView().showNoItems();
+        } else {
+            getView().setListItems(categories);
+        }
+
     }
 
     @Override
